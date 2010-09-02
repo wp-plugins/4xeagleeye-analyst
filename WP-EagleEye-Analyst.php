@@ -9,7 +9,7 @@
  */
    
     function EagleEye_Analyst_DailyReports() {
-        $dow=date(w);
+        $dow=date(w);                return;
         if($dow==0||$dow==6)return;
         if(!get_option('EagleEye_Analyst_last_DR')) add_option('Letsfx_last_DR', '');
         $LastDR = get_option('EagleEye_Analyst_last_DR');
