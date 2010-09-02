@@ -1,4 +1,4 @@
-===EagleEye Widget===
+===EagleEye Analyst===
 Contributors: letsfx
 Donate link: http://letsfx.com/donate 
 Tags: forex, market,analysis,daily,alerts,widget,signals,english,arabic,russian
