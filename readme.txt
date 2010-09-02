@@ -27,11 +27,8 @@ Follow the steps below to install the widget.
 
 = What pairs covered? =
 
-Analysis covers EURUSD, GBPUSD, USDCHF, USDJPY, Gold and Silver.
+Analysis covers EURUSD, GBPUSD, USDCHF, USDJPY.
 
-= Is it upto date analysis =
-
-Widget updated in hourly bases with market changes and analysis alerts.
 
 == Screenshots ==
 
