@@ -171,7 +171,7 @@
                 </div>
                 <h3>Preview sample</h3> 
                 <div style="border: 1px solid #FFFFFF ;width: 700px;padding:20px;margin:20px;">           
-                    <!--script type="text/javascript" language="javascript" src="http://www.letsfx.com/dailyreport/"></script-->
+                    <script type="text/javascript" language="javascript" src="http://www.letsfx.com/dailyreport/"></script>
                 </div>
             </form> 
 
