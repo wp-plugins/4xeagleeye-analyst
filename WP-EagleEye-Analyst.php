@@ -1,7 +1,7 @@
 <?php
  /*
  * Plugin Name: EagleEye Analyst
- * Version: 1.0
+ * Version: 1.1
  * Plugin URI: http://www.letsfx.com/business/37-technical-analysis-generator/59-analysis-generator.html
  * Description: Auto publish 4 `Forex Analysis reports` posts on daily bases, to your blog. EagleEye is FOREX, market trading tool designed to cover daily trader`s needs. EagleEye is trader`s sharp eye on the FOREX market short term technical outlook, which, also, alert users with any changes on current market outlook. English, Russian and Arabic interfaces. Try this code on your posts to see full live report &lt;script type = &quot;text/javascript&quot; language = &quot;javascript&quot; src = &quot;http://www.letsfx.com/dailyreport/&quot; &gt;&lt;/script&gt;
  * Author: Aqlan
@@ -9,7 +9,7 @@
  */
    
     function EagleEye_Analyst_DailyReports() {
-        $dow=date(w);                return;
+        $dow=date(w);               
         if($dow==0||$dow==6)return;
         if(!get_option('EagleEye_Analyst_last_DR')) add_option('Letsfx_last_DR', '');
         $LastDR = get_option('EagleEye_Analyst_last_DR');
@@ -30,9 +30,11 @@
         $dt=date('Y-m-d');        
          if($dt!=$LastDR){        
             foreach($lang_a as $lang){
+                if(strlen($lang)<2) continue;
                 $i=0;
                 foreach($instr_a as $instr){
-                    $body=file_get_contents('http://reports.4xeagleeye.com/eagleeye.php?target=html&ref=letsfx.com&pair='.$instr.'&lang='.$lang.'&ref='.$_SERVER['SERVER_NAME']);
+                    if(strlen($instr)<2) continue;
+                    $body=file_get_contents('http://reports.4xeagleeye.com/eagleeye.php?target=html&pair='.$instr.'&lang='.$lang.'&ref='.$_SERVER['SERVER_NAME']);
                     if($body==false) continue;
                     $pos1 = stripos($body, '<!--EXCERP-->');
                     $pos1 = stripos($body, '>', $pos1 + 1 );
@@ -56,6 +58,7 @@
                         'post_title' =>  $instr.' Analysis '.$dt,    
                         'post_type' => 'post'                    
                         );            
+                    //echo $body;
                     wp_insert_post( $post );
                     $i++;                 
                 }
@@ -70,7 +73,7 @@
     add_action('EagleEye_Analyst_DR', 'EagleEye_Analyst_DailyReports');
     
     function EagleEye_Analyst_activation() {
-        $day = date('d');         
+                
         if(!get_option('EagleEye_Analyst_active')) add_option('EagleEye_Analyst_active', false);
         if(!get_option('EagleEye_Analyst_cat')) add_option('EagleEye_Analyst_cat', 0);
         if(!get_option('EagleEye_Analyst_eurusd')) add_option('EagleEye_Analyst_eurusd', false);
@@ -83,6 +86,15 @@
     }
 
     function EagleEye_Analyst_deactivation() {
+        delete_option('EagleEye_Analyst_last_DR');
+        delete_option('EagleEye_Analyst_active');
+        delete_option('EagleEye_Analyst_cat');
+        delete_option('EagleEye_Analyst_english');
+        delete_option('EagleEye_Analyst_arabic');
+        delete_option('EagleEye_Analyst_eurusd');
+        delete_option('EagleEye_Analyst_gbpusd');
+        delete_option('EagleEye_Analyst_usdchf');
+        delete_option('EagleEye_Analyst_usdjpy');
         wp_clear_scheduled_hook('EagleEye_Analyst_DR');
     }
 
@@ -95,8 +107,6 @@
             } 
             
             function EagleEyeAnalystOptions(){
-                global $wpdb;
-                //     
                 if (isset($_POST['info_update'])) {
                     $active = $_POST['active'];  
                     update_option(EagleEye_Analyst_active,$active);
@@ -117,10 +127,9 @@
                     $usdchf = $_POST['usdchf'];  
                     update_option(EagleEye_Analyst_usdchf,$usdchf);
                     $usdjpy = $_POST['usdjpy'];  
-                    update_option(EagleEye_Analyst_usdjpy,$usdjpy);
-                    
-                    
+                    update_option(EagleEye_Analyst_usdjpy,$usdjpy);                     
                 }    
+                
                 $active = get_option('EagleEye_Analyst_active');
                 $cat = get_option('EagleEye_Analyst_cat');
                 $english = get_option('EagleEye_Analyst_english');
@@ -146,7 +155,7 @@
                     <p>Active: <input type="checkbox" name="active" <?php echo iif($active,'checked','') ?> ></p>
                     <p>Languages:<br/>
                         <input title="English" type="checkbox" name="english" <?php echo iif($english,'checked','') ?> />English
-                        <input title="Arabic" type="checkbox" name="arabic" <?php echo iif($english,'checked','') ?> />Arabic
+                        <input title="Arabic" type="checkbox" name="arabic" <?php echo iif($arabic,'checked','') ?> />Arabic
                     </p>
                     <p>Instruments:<br/>
                         <input title="EURUSD" type="checkbox" name="eurusd" <?php echo iif($eurusd,'checked','') ?> />EURUSD
@@ -162,15 +171,13 @@
                 </div>
                 <h3>Preview sample</h3> 
                 <div style="border: 1px solid #FFFFFF ;width: 700px;padding:20px;margin:20px;">           
-                    <script type="text/javascript" language="javascript" src="http://www.letsfx.com/dailyreport/"></script>
+                    <!--script type="text/javascript" language="javascript" src="http://www.letsfx.com/dailyreport/"></script-->
                 </div>
             </form> 
 
                 <?php
                 
-                $wpdb->hide_errors();
-                
-                return;
+
             }                                                                     
         }
     } 
