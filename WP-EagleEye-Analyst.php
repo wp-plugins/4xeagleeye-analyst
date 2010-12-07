@@ -1,11 +1,11 @@
 <?php
     /*
     * Plugin Name: EagleEye Analyst
-    * Version: 1.1.9
+    * Version: 1.2
     * Plugin URI: http://www.letsfx.com/business/37-technical-analysis-generator/59-analysis-generator.html
     * Description: Auto publish 4 `Forex Analysis reports` posts on daily bases, to your blog. EagleEye is FOREX, market trading tool designed to cover daily trader`s needs. EagleEye is trader`s sharp eye on the FOREX market short term technical outlook, which, also, alert users with any changes on current market outlook. English, Russian and Arabic interfaces. Try this code on your posts to see full live report &lt;script type = &quot;text/javascript&quot; language = &quot;javascript&quot; src = &quot;http://www.letsfx.com/dailyreport/&quot; &gt;&lt;/script&gt;
     * Author: Aqlan
-    * Author URI: http://www.letsfx.com/
+    * Author URI: http://blog.letsfx.com/
     */
     
     function my_fetch_url( $url, $method='GET', $body=array(), $headers=array() ) {
@@ -24,7 +24,7 @@
         $dow=date(w);              
         if($dow==0||$dow==6)return;
         if(!get_option('EagleEye_Analyst_last_DR')) add_option('Letsfx_last_DR', '');
-        $dt=date('Y-m-d');
+        $dt=date('o.m.d');
         $LastDR = get_option('EagleEye_Analyst_last_DR');
         if($dt==$LastDR) return;        
         //set_time_limit(0);
@@ -46,24 +46,14 @@
             if(strlen($lang)<2) continue;
             foreach($instr_a as $instr){
                 if(strlen($instr)<2) continue;
-                $body=my_fetch_url('http://reports.4xeagleeye.com/?target=html&pair='.$instr.'&lang='.$lang.'&ref='.$_SERVER['SERVER_NAME']);
+                $body='<script type="text/javascript" src="http://reports.4xeagleeye.com/?pair='.$instr.'&lang='.$lang.'&day='.date("o.m.d").'" ></script>';
                 if($body==false) continue;
-                $pos1 = mb_stripos($body, '<!--EXCERP-->',0,'UTF-8');
-                $pos1 = mb_stripos($body, '>', $pos1 + 1 ,'UTF-8');
-                $pos2 = mb_stripos($body, '<!--EXCERP-->',$pos1,'UTF-8');
-                $excerp = mb_substr($body, $pos1 + 1, $pos2 - $pos1 - 1,'UTF-8');
-                
-                $pos1 = mb_stripos($body, '<body',0,'UTF-8');
-                $pos1 = mb_stripos($body, '>', $pos1 + 1 ,'UTF-8');
-                $pos2 = mb_stripos($body, '</body>',0,'UTF-8');
-                $body = mb_substr($body, $pos1 + 1, $pos2 - $pos1 - 1,'UTF-8');
-                                
                 //$body='<textarea cols="85" rows="20">'.$body.'</textarea>' ;
                 while(mb_stripos($body, "  ",0,'UTF-8')!==false)
                     $body  = str_replace("  ", " ",$body);
                 $body  = str_replace(array('\r\n','\r','\n'), array('','',''),$body);
                 $post = array(  
-                'comment_status' => 'closed',  
+                'comment_status' => 'open',  
                 'ping_status' => 'open', 
                 'post_author' =>1, 
                 'post_category' => array($cat),   
@@ -75,8 +65,7 @@
                 );            
                 $hf= remove_filter('content_save_pre', 'wp_filter_post_kses');
                 wp_insert_post( add_magic_quotes($post) );
-                if($hf) add_filter('content_save_pre', 'wp_filter_post_kses');
-                  
+                if($hf) add_filter('content_save_pre', 'wp_filter_post_kses');                  
             }
         }
 
@@ -117,8 +106,10 @@
                 if (isset($_POST['info_update'])) {
                     $active = $_POST['active'];  
                     update_option(EagleEye_Analyst_active,$active);
-                    if($active)
+                    if($active){
                         wp_schedule_event(mktime(7,0,0,date('m'),date('d'),date('Y')), 'daily', 'EagleEye_Analyst_DR');
+                        //update_option('EagleEye_Analyst_last_DR','');
+                    }
                     else
                         wp_clear_scheduled_hook('EagleEye_Analyst_DR');
                     $cat = $_POST['cat'];  
