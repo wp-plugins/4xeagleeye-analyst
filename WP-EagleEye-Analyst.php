@@ -1,7 +1,7 @@
 <?php
     /*
     * Plugin Name: EagleEye Analyst
-    * Version: 1.2.1
+    * Version: 1.2.2
     * Plugin URI: http://www.letsfx.com/business/37-technical-analysis-generator/59-analysis-generator.html
     * Description: Auto publish 4 `Forex Analysis reports` posts on daily bases, to your blog. EagleEye is FOREX, market trading tool designed to cover daily trader`s needs. EagleEye is trader`s sharp eye on the FOREX market short term technical outlook, which, also, alert users with any changes on current market outlook. English, Russian and Arabic interfaces. Try this code on your posts to see full live report &lt;script type = &quot;text/javascript&quot; language = &quot;javascript&quot; src = &quot;http://www.letsfx.com/dailyreport/&quot; &gt;&lt;/script&gt;
     * Author: Aqlan
@@ -50,6 +50,7 @@
                 $excerp = my_fetch_url('http://reports.4xeagleeye.com/?target=html&display=excerp&pair='.$instr.'&lang='.$lang.'&day='.date("o.m.d"));
                 if($excerp==false) continue;
                 $excerp  = str_replace(array('\r\n','\r','\n','<!--EXCERP-->','<br />','<br>','<br/>'), array('','','','','','',''),$excerp);
+                $body = '<p style="display:none;">'.$excerp.'</p>'.$body;
                 $post = array(  
                 'comment_status' => 'open',  
                 'ping_status' => 'open', 
@@ -194,29 +195,6 @@
         $x = ( 'rtl' == get_bloginfo( 'text_direction' ) ) ? 'right' : 'left';
 
         echo "
-        <style type='text/css'>
-        div#LetsFX p {margin:0px;line-height: normal;}
-        div#LetsFX h3{margin:5px;line-height: normal;} 
-        div#LetsFX h2{margin:5px;line-height: normal;color:white;}
-        div#LetsFX tr {background-color: white;padding:0px}
-        div#LetsFX tr td {border:0px;line-height: normal;padding:0px;vertical-align:middle;}
-        div#LetsFX table td h2.header {line-height: normal;color:white;margin:0px;text-shadow:#E0E0E0 0 1px 1px}
-        div#LetsFX table {border-collapse: separate;border-color: #585858;font-size:11px}
-        div#LetsFX table.ee_main,div#LetsFX {border:0px;border-spacing: 1px 1px;color:#585858;margin: 0px;background-color: transparent;font-size: 11px;font-family: Arial, Verdana, Tahoma, Helvetica;}
-        div#LetsFX table.eemain td{border:0px;margin: 5px;}
-        div#LetsFX table.list {border:0px;border-spacing: 1px 1px;}
-        div#LetsFX table.list td{border:0px;}
-        div#LetsFX table.dailyprofile {border:0px;border-spacing: 5px 2px;} 
-        div#LetsFX table.supres {border:0px;border-spacing: 15px 5px;} 
-        div#LetsFX table.supres td{text-align:center;border-bottom-width: 1px;border-bottom-style:dotted;border-bottom-color:#C0C0C0;}  
-        div#LetsFX table.summary td{text-align:center;border-bottom-width: 1px;border-bottom-style:dotted;border-bottom-color:#C0C0C0;}
-        div#LetsFX table.alerts td{border:0px;margin: 5px;border-bottom-width: 1px;border-bottom-style:dotted;border-bottom-color:#C0C0C0;}
-        div#LetsFX tr.row  {border:0px;border-top:1px solid white;}
-        div#LetsFX tr.altrow  {border:0px;background-color: #F9F9F9;}
-        div#LetsFX .header {color:white;background-color: #585858;color:#F0F0F0;height:40px;vertical-align: middle;border:0px;border-bottom: 1px solid #E3E3E3;}
-        div#LetsFX tr td.caption {border-width:0px;font-weight: bold;background-color: #F8F8F8;color:#585858;border-bottom: 1px solid #E3E3E3;}
-        div#LetsFX img{border:0px;}
-        </style>
         ";
     }
     function iif($b, $t, $f){
