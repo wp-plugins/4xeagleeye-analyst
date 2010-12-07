@@ -1,7 +1,7 @@
 <?php
     /*
     * Plugin Name: EagleEye Analyst
-    * Version: 1.2
+    * Version: 1.2.1
     * Plugin URI: http://www.letsfx.com/business/37-technical-analysis-generator/59-analysis-generator.html
     * Description: Auto publish 4 `Forex Analysis reports` posts on daily bases, to your blog. EagleEye is FOREX, market trading tool designed to cover daily trader`s needs. EagleEye is trader`s sharp eye on the FOREX market short term technical outlook, which, also, alert users with any changes on current market outlook. English, Russian and Arabic interfaces. Try this code on your posts to see full live report &lt;script type = &quot;text/javascript&quot; language = &quot;javascript&quot; src = &quot;http://www.letsfx.com/dailyreport/&quot; &gt;&lt;/script&gt;
     * Author: Aqlan
@@ -46,12 +46,10 @@
             if(strlen($lang)<2) continue;
             foreach($instr_a as $instr){
                 if(strlen($instr)<2) continue;
-                $body='<script type="text/javascript" src="http://reports.4xeagleeye.com/?pair='.$instr.'&lang='.$lang.'&day='.date("o.m.d").'" ></script>';
-                if($body==false) continue;
-                //$body='<textarea cols="85" rows="20">'.$body.'</textarea>' ;
-                while(mb_stripos($body, "  ",0,'UTF-8')!==false)
-                    $body  = str_replace("  ", " ",$body);
-                $body  = str_replace(array('\r\n','\r','\n'), array('','',''),$body);
+                $body='<!--more--><script type="text/javascript" src="http://reports.4xeagleeye.com/?pair='.$instr.'&lang='.$lang.'&day='.date("o.m.d").'" ></script>';
+                $excerp = my_fetch_url('http://reports.4xeagleeye.com/?target=html&display=excerp&pair='.$instr.'&lang='.$lang.'&day='.date("o.m.d"));
+                if($excerp==false) continue;
+                $excerp  = str_replace(array('\r\n','\r','\n','<!--EXCERP-->','<br />','<br>','<br/>'), array('','','','','','',''),$excerp);
                 $post = array(  
                 'comment_status' => 'open',  
                 'ping_status' => 'open', 
