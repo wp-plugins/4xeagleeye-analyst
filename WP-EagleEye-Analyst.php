@@ -222,5 +222,44 @@
     function iif($b, $t, $f){
         if($b) return $t;
         return $f;
-    }                        
+    } 
+
+ /*   function my_excerpts($content = false) {
+        // If is the home page, an archive, or search results
+        //if(is_front_page() || is_archive() || is_search()) :
+        $content = strip_shortcodes($content);
+        $content = str_replace(']]>', ']]>', $content);
+        $content = strip_tags($content);
+
+        $excerpt_length = 20;
+        $words = explode(' ', $content, $excerpt_length + 1);
+        if(count($words) > $excerpt_length) :
+        array_pop($words);
+        array_push($words, '…');
+        $content = implode(' ', $words);
+        endif;
+        $content = '<p>' . $content . '</p>';
+
+        //endif;
+
+        // Make sure to return the content
+
+        return 'fff'.$content;
+    }
+    add_filter('bp_create_excerpt', 'my_excerpts');
+
+    function my_bp_blogs_record_activity_content( $bp_excerpt, $content ) {
+        return the_excerpt();
+    }
+    add_filter( 'bp_blogs_record_activity_content', 'my_bp_blogs_record_activity_content', 1, 2 );
+    
+function my_bp_post_excerpt($activity_content, $post, $permalink) {
+    //return the_excerpt();
+    if($post->post_excerpt)           
+        return $post->post_excerpt;
+    else
+        return $activity_content;
+}
+add_filter( 'bp_get_activity_content_body', 'my_bp_post_excerpt', 1, 3 ); */
+                       
 ?>
