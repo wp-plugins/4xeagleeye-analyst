@@ -1,7 +1,7 @@
 <?php
     /*
     * Plugin Name: EagleEye Analyst
-    * Version: 1.2.3
+    * Version: 1.3.0
     * Plugin URI: http://www.letsfx.com/business/37-technical-analysis-generator/59-analysis-generator.html
     * Description: Auto publish 4 `Forex Analysis reports` posts on daily bases, to your blog. EagleEye is FOREX, market trading tool designed to cover daily trader`s needs. EagleEye is trader`s sharp eye on the FOREX market short term technical outlook, which, also, alert users with any changes on current market outlook. English, Russian and Arabic interfaces. Try this code on your posts to see full live report &lt;script type = &quot;text/javascript&quot; language = &quot;javascript&quot; src = &quot;http://www.letsfx.com/dailyreport/&quot; &gt;&lt;/script&gt;
     * Author: Aqlan
@@ -145,6 +145,21 @@
             <form action="options-general.php?page=EagleEye-Analyst-options" method="post">
                 <h2>EagleEye Analyst</h2>
                 <h3>Configuration</h3>
+                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="float: right; background: #FFFFC0; padding: 5px; border: 1px dashed #FF9A35;">
+                   <input type="hidden" name="cmd" value="_s-xclick">
+                   <input type="hidden" name="hosted_button_id" value="AYDPUDCTRQUJL">
+                   <table>
+                      <tr><td align="center"><input type="hidden" name="on0" value="Donate">Donate</td></tr><tr><td align="center"><select name="os0">
+                               <option value="Thanks">Thanks $5.00</option>
+                               <option value="Thanks a lot">Thanks a lot $20.00</option>
+                               <option value="Gratitude">Gratitude $50.00</option>
+                         </select> </td></tr><tr><td align="center">
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="image" src="http://image.ebdatube.com/images/paypalbutt.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                         </td></tr>
+                   </table>
+                </form>
                 <div style="border: 1px solid #FFFFFF ;width: 500px;padding:20px;margin:20px;">                     
                     <div class="updated fade" style="margin-bottom:20px;padding:10px">
                         Last run:&nbsp;<span style="color: Red;"> <?php echo $LastDR ?></span>&nbsp;&nbsp;&nbsp;Next run:&nbsp;<span style="color: Red;"><?php echo $NextDR ?></span> 
