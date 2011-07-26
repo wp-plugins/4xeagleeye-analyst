@@ -142,10 +142,7 @@
                 if($active) $active_c='checked'; else $active_c='';
 
             ?> 
-            <form action="options-general.php?page=EagleEye-Analyst-options" method="post">
-                <h2>EagleEye Analyst</h2>
-                <h3>Configuration</h3>
-                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="float: right; background: #FFFFC0; padding: 5px; border: 1px dashed #FF9A35;">
+            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="float: right; background: #FFFFC0; padding: 5px; border: 1px dashed #FF9A35;">
                    <input type="hidden" name="cmd" value="_s-xclick">
                    <input type="hidden" name="hosted_button_id" value="AYDPUDCTRQUJL">
                    <table>
@@ -160,6 +157,10 @@
                          </td></tr>
                    </table>
                 </form>
+            <form action="options-general.php?page=EagleEye-Analyst-options" method="post">
+                <h2>EagleEye Analyst</h2>
+                <h3>Configuration</h3>
+                
                 <div style="border: 1px solid #FFFFFF ;width: 500px;padding:20px;margin:20px;">                     
                     <div class="updated fade" style="margin-bottom:20px;padding:10px">
                         Last run:&nbsp;<span style="color: Red;"> <?php echo $LastDR ?></span>&nbsp;&nbsp;&nbsp;Next run:&nbsp;<span style="color: Red;"><?php echo $NextDR ?></span> 
