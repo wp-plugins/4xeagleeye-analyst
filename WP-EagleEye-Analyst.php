@@ -1,7 +1,7 @@
 <?php
     /*
     * Plugin Name: EagleEye Analyst
-    * Version: 1.4.0
+    * Version: 1.4.1
     * Plugin URI: http://www.letsfx.com/wpanal
     * Description: Auto publish `Forex Analysis reports` posts on daily bases, to your blog. EagleEye is FOREX, market trading tool designed to cover daily trader`s needs. EagleEye is trader`s sharp eye on the FOREX market short term technical outlook, which, also, alert users with any changes on current market outlook. English, Russian and Arabic interfaces. Try this code on your posts to see full live report &lt;script type = &quot;text/javascript&quot; language = &quot;javascript&quot; src = &quot;http://www.letsfx.com/dailyreport/&quot; &gt;&lt;/script&gt;
     * Author: Aqlan
@@ -172,9 +172,9 @@
                     </p>
                     <p>Instruments:<br/>
                         <input title="EURUSD" type="checkbox" name="eurusd" <?php echo iif($eurusd,'checked','') ?> />EURUSD
-                        <input title="GBPUSD" type="checkbox" name="gbpusd" <?php echo iif($gbpusd,'checked','') ?> />GBPUSD
-                        <input title="USDCHF" type="checkbox" name="usdchf" <?php echo iif($usdchf,'checked','') ?> />USDCHF
-                        <input title="USDJPY" type="checkbox" name="usdjpy" <?php echo iif($usdjpy,'checked','') ?> />USDJPY
+                        <input title="GBPUSD" type="checkbox" disabled="disabled" name="gbpusd"  />GBPUSD
+                        <input title="USDCHF" type="checkbox" disabled="disabled" name="usdchf"  />USDCHF
+                        <input title="USDJPY" type="checkbox" disabled="disabled" name="usdjpy"  />USDJPY
                     </p>
 
                     <p>Category ID: <input type="text" name="cat" value="<?php echo $cat ?>" ></p>                    
