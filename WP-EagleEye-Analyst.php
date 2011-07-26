@@ -8,7 +8,7 @@
     * Author URI: http://blog.letsfx.com/
     */
     
-    function my_fetch_url( $url, $method='GET', $body=array(), $headers=array() ) {
+    function my_fetch_url1( $url, $method='GET', $body=array(), $headers=array() ) {
         $request = new WP_Http;
         $result = $request->request( $url , array( 'method'=>$method, 'body'=>$body, 'headers'=>$headers, 'user-agent'=>'LetsFX http://www.letsfx.com' ) );
         // Success?
@@ -47,7 +47,7 @@
             foreach($instr_a as $instr){
                 if(strlen($instr)<2) continue;
                 $body='<!--more--><script type="text/javascript" src="http://reports.4xeagleeye.com/?pair='.$instr.'&lang='.$lang.'&day='.date("o.m.d").'" ></script>';
-                $excerp = my_fetch_url('http://reports.4xeagleeye.com/?target=html&domain=letsfx.com&display=excerp&pair='.$instr.'&lang='.$lang.'&day='.date("o.m.d"));
+                $excerp = my_fetch_url1('http://reports.4xeagleeye.com/?target=html&domain=letsfx.com&display=excerp&pair='.$instr.'&lang='.$lang.'&day='.date("o.m.d"));
                 if($excerp==false) continue;
                 $excerp  = str_replace(array('\r\n','\r','\n','<!--EXCERP-->','<br />','<br>','<br/>'), array('','','','','','',''),$excerp);
                 $body = '<p style="display:none;">'.$excerp.'</p>'.$body;
