@@ -1,6 +1,6 @@
 ===EagleEye Analyst===
 Contributors: letsfx
-Donate link: http://letsfx.com/donate 
+Donate link: http://letsfx.com/wpanal
 Tags: forex, market,analysis,daily,alerts,widget,signals,english,arabic,russian
 Requires at least: 2.8
 Tested up to: 3.2.1
@@ -10,7 +10,7 @@ EagleEye is FOREX, market trading tool designed to cover daily and hourly market
 
 == Description ==
 
-Auto publish 4 `Forex Analysis reports` posts on daily bases, to your blog. EagleEye is FOREX, market trading tool designed to cover daily trader`s needs. EagleEye is trader`s sharp eye on the FOREX market short term technical outlook, which, also, alert users with any changes on current market outlook. English, Russian and Arabic interfaces. Try this code on your posts to see full live report &lt;script type = &quot;text/javascript&quot; language = &quot;javascript&quot; src = &quot;http://www.letsfx.com/dailyreport/&quot; &gt;&lt;/script&gt;
+Auto publish `Forex Analysis reports` posts on daily bases, to your blog. EagleEye is FOREX, market trading tool designed to cover daily trader`s needs. EagleEye is trader`s sharp eye on the FOREX market short term technical outlook, which, also, alert users with any changes on current market outlook. English, Russian and Arabic interfaces. Try this code on your posts to see full live report &lt;script type = &quot;text/javascript&quot; language = &quot;javascript&quot; src = &quot;http://www.letsfx.com/dailyreport/&quot; &gt;&lt;/script&gt;
 
 
 == Installation ==
