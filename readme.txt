@@ -3,7 +3,7 @@ Contributors: letsfx
 Donate link: http://letsfx.com/wpanal
 Tags: forex, market,analysis,daily,alerts,widget,signals,english,arabic,russian
 Requires at least: 2.8
-Tested up to: 3.2.1
+Tested up to: 3.3
 Stable tag: trunk,
 
 EagleEye is FOREX, market trading tool designed to cover daily and hourly market analysis and trade signals.
