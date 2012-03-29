@@ -142,21 +142,12 @@
                 if($active) $active_c='checked'; else $active_c='';
 
             ?> 
-            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="float: right; background: #FFFFC0; padding: 5px; border: 1px dashed #FF9A35;">
-                   <input type="hidden" name="cmd" value="_s-xclick">
-                   <input type="hidden" name="hosted_button_id" value="AYDPUDCTRQUJL">
-                   <table>
-                      <tr><td align="center"><input type="hidden" name="on0" value="Donate">Donate</td></tr><tr><td align="center"><select name="os0">
-                               <option value="Thanks">Thanks $5.00</option>
-                               <option value="Thanks a lot">Thanks a lot $20.00</option>
-                               <option value="Gratitude">Gratitude $50.00</option>
-                         </select> </td></tr><tr><td align="center">
-                            <input type="hidden" name="currency_code" value="USD">
-                            <input type="image" src="http://image.ebdatube.com/images/paypalbutt.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                         </td></tr>
-                   </table>
-                </form>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="float: right; background: #FFFFC0; padding: 5px; border: 1px dashed #FF9A35;">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="83DSNTP8Q7JQC">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
             <form action="options-general.php?page=EagleEye-Analyst-options" method="post">
                 <h2>EagleEye Analyst</h2>
                 <h3>Configuration</h3>
