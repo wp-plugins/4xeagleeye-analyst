@@ -1,11 +1,11 @@
 <?php
     /*
     * Plugin Name: EagleEye Analyst
-    * Version: 1.5.1
-    * Plugin URI: http://www.letsfx.com/wpanal
+    * Version: 1.5.2
+    * Plugin URI: http://lets4x.com/
     * Description: Auto publish `Forex Analysis reports` posts on daily bases, to your blog. EagleEye is FOREX, market trading tool designed to cover daily trader`s needs. EagleEye is trader`s sharp eye on the FOREX market short term technical outlook, which, also, alert users with any changes on current market outlook. English, Russian and Arabic interfaces. Try this code on your posts to see full live report &lt;script type = &quot;text/javascript&quot; language = &quot;javascript&quot; src = &quot;http://www.letsfx.com/dailyreport/&quot; &gt;&lt;/script&gt;
     * Author: Aqlan
-    * Author URI: http://blog.letsfx.com/
+    * Author URI: http://lets4x.com/
     */
     
     function my_fetch_url1( $url, $method='GET', $body=array(), $headers=array() ) {
