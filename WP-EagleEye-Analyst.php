@@ -1,7 +1,7 @@
 <?php
-     /*
+    /*
     * Plugin Name: EagleEye Analyst
-    * Version: 1.5.2
+    * Version: 1.5.3
     * Plugin URI: http://lets4x.com/
     * Description: Auto publish `Forex Analysis reports` posts on daily bases, to your blog. EagleEye is FOREX, market trading tool designed to cover daily trader`s needs. EagleEye is trader`s sharp eye on the FOREX market short term technical outlook, which, also, alert users with any changes on current market outlook. English, Russian and Arabic interfaces. Try this code on your posts to see full live report &lt;script type = &quot;text/javascript&quot; language = &quot;javascript&quot; src = &quot;http://www.letsfx.com/dailyreport/&quot; &gt;&lt;/script&gt;
     * Author: Aqlan
@@ -142,12 +142,9 @@
                 if($active) $active_c='checked'; else $active_c='';
 
             ?> 
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="float: right; background: #FFFFC0; padding: 5px; border: 1px dashed #FF9A35;">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="83DSNTP8Q7JQC">
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
+             <a href="http://www.letsfx.com/donate" target="_blank" style="float: right; background: #FFFFC0; padding: 5px; border: 1px dashed #FF9A35;">
+            <img alt="" border="0" src="http://www.letsfx.com/wp-content/uploads/2012/07/btn_donate_LG.gif" >
+            </a>
             <form action="options-general.php?page=EagleEye-Analyst-options" method="post">
                 <h2>EagleEye Analyst</h2>
                 <h3>Configuration</h3>
