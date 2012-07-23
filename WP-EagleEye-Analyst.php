@@ -1,5 +1,5 @@
 <?php
-    /*
+     /*
     * Plugin Name: EagleEye Analyst
     * Version: 1.5.2
     * Plugin URI: http://lets4x.com/
